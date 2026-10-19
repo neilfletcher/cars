@@ -123,6 +123,9 @@ header.mast{border-bottom:3px double var(--rule); padding:28px 0 0}
   font-style:italic; color:var(--ink); max-width:62ch;
 }
 .entry blockquote cite{display:block; font-style:normal; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-soft); margin-top:6px; text-transform:uppercase}
+.photos{display:grid; grid-template-columns:1fr; gap:8px; margin:14px 0 4px; max-width:620px}
+.photos.two{grid-template-columns:1fr 1fr}
+.photos img{width:100%; aspect-ratio:3/2; object-fit:cover; display:block; border:1px solid var(--rule); background:var(--paper-2); filter:saturate(.92)}
 .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
 .tag{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:3px 7px; border:1px solid var(--rule); color:var(--ink-soft)}
 .tag.hot{border-color:var(--red); color:var(--red)}
@@ -322,17 +325,17 @@ const CARS = [
   {era:"barge", when:"c. 2008 to 2009", make:"Volkswagen", name:"Volkswagen Phaeton", spec:"3.2 V6", f:["barge"],
    text:"Daily wafting, the occasional run up the M1 and the weekly trip to the airport. It did 24mpg on my 40-mile commute and fitted my allocated parking space badly. It failed its MOT on tyres the day before I sold it.",
    q:"The Phaeton really is a lovely car, and it does what it does extremely well, but it's just too damn big.", src:"PistonHeads, 2009"},
-  {era:"barge", when:"Jun 2009 to Sep 2014", make:"Mazda", name:"Mazda MX-5", spec:"1.8i Mk1, track car", f:["sports","track","mx5"], tags:["MX-5 #2"],
+  {era:"barge", when:"Jun 2009 to Sep 2014", make:"Mazda", name:"Mazda MX-5", spec:"1.8i Mk1, track car", f:["sports","track","mx5"], tags:["MX-5 #2"], img:"mx5-mk1.jpg",
    text:"I put a cheeky low bid on a badly advertised one on eBay, fully expecting to be outbid, and won. It slowly turned into a proper track car with a roll bar, harnesses and less of everything else. It finally got its first track day at Bedford in May 2013, all written up on its own blog. Sold in 2014 after five years.",
    q:"Time for something I can slide around a bit.", src:"PistonHeads, 2009"},
-  {era:"barge", when:"Sep 2009", make:"Porsche", name:"Porsche 944 Turbo", spec:"£3.5k, plus spares", f:["sports"],
+  {era:"barge", when:"Sep 2009", make:"Porsche", name:"Porsche 944 Turbo", spec:"£3.5k, plus spares", f:["sports"], img:"porsche-944.jpg",
    text:"I've always had a healthy disdain for anything 911-shaped, so I went in nervously. I came out with a 944 Turbo for just over £3,500 and enough spares to almost build another, including a Promax Link ECU and the turbo from the later 250bhp model.",
    q:"Shhhh... don't let anybody know that I'm in here, the Cerbera boys will never forgive me.", src:"PistonHeads, 2009"},
-  {era:"barge", when:"Dec 2009 to Jan 2011", make:"BMW", name:"BMW M5", spec:"E39, 2000", f:["sports","barge","bmw"],
+  {era:"barge", when:"2009 to Jan 2011", make:"BMW", name:"BMW M5", spec:"E39, 2000", f:["sports","barge","bmw"], img:"m5.jpg",
    text:"The proper one. Memorable mostly for a spilt McDonald's Coke that shorted the seat recline motor, which then drove me slowly and steadily towards the steering wheel at 70mph on a dual carriageway. Sold in January 2011 when petrol prices got silly.",
    q:"It's a mildly disconcerting feeling to be travelling at 70.1 mph, while the speedo is showing 70.", src:"PistonHeads, 2010"},
 
-  {era:"swap", when:"Mar 2011 to Jun 2012", make:"Fiat", name:"Abarth 500", spec:"Bossa Nova White, ordered new", f:["sports","run"], tags:["Only new car"],
+  {era:"swap", when:"Mar 2011 to Jun 2012", make:"Fiat", name:"Abarth 500", spec:"Bossa Nova White, ordered new", f:["sports","run"], tags:["Only new car"], img:"abarth.jpg",
    text:"From a V8 M5 to a 1.4 Fiat. Ordered in white with side stripes, climate control and black leather, and the closest thing I'd driven to my stripped Mk1 Golf. I logged every fill-up on Fuelly: 34.3mpg on average, whatever the dash claimed. It went in as part of the Evora deposit.",
    q:"I've never owned a new car before, I'm quite excited by the prospect.", src:"beex, 2011"},
   {era:"swap", when:"2011 to Feb 2012", make:"Nissan", name:"Nissan Micra", spec:"1.0, 1999 facelift", f:["run"],
@@ -342,22 +345,22 @@ const CARS = [
   {era:"swap", when:"Apr 2012", make:"Renault", name:"Renault Clio dCi 80", spec:"2005 Dynamique, diesel", f:["run"],
    text:"Bought as the household's cheap, reliable commuter. It needed a £1,650 injector repair within months, the most I spent fixing any car in five years.",
    q:"Cheap it was, reliable it was not.", src:"beex, 2019"},
-  {era:"swap", when:"Jul 2012 to Feb 2013", make:"Lotus", name:"Lotus Evora S", spec:"2011, red, 345bhp, 1,700 miles", f:["sports"], tags:["Most complete"], hot:true,
+  {era:"swap", when:"Jul 2012 to Feb 2013", make:"Lotus", name:"Lotus Evora S", spec:"2011, red, 345bhp, 1,700 miles", f:["sports"], tags:["Most complete"], hot:true, img:"evora.jpg",
    text:"I looked at a Cayman S, an Aston Vantage and a few 911s, and loved the Evora most. Bought from Lotus Silverstone for £40,250 and sold six months later for £37,000. The boot filled with water whenever it rained, the oil lines were recalled for a fire risk, and a £20 Mondeo switch unlocks the £350 power-fold mirror option.",
    q:"The Evora is amazing, I've never owned a more complete, every day drivers car.", src:"beex, 2012"},
-  {era:"swap", when:"Feb 2013 to Jun 2013", make:"Lexus", name:"Lexus LS400", spec:"1994, 120,000 miles, £595", f:["barge"], tags:["Second time round"],
+  {era:"swap", when:"Feb 2013 to Jun 2013", make:"Lexus", name:"Lexus LS400", spec:"1994, 120,000 miles, £595", f:["barge"], tags:["Second time round"], img:"lexus-ls400.jpg",
    text:"Bought over the phone first thing in the morning after it appeared in the PistonHeads bargain barge thread, to tide me over while the Evora sold. It needed a power steering pump, which the selling garage fitted for free. It was replaced, inevitably, by something cheaper and faster.",
    q:"Take a look at my car history, this isn't my first rodeo.", src:"PistonHeads, 2013"},
-  {era:"swap", when:"Jun 2013 to Jan 2014", make:"Jaguar", name:"Jaguar XJR", spec:"2000 X308, supercharged V8, Cat D", f:["barge","sports"], tags:["Best deal"],
+  {era:"swap", when:"Jun 2013 to Jan 2014", make:"Jaguar", name:"Jaguar XJR", spec:"2000 X308, supercharged V8, Cat D", f:["barge","sports"], tags:["Best deal"], img:"xjr.jpg",
    text:"Advertised by a fellow PHer at £1,250 no offers, and I didn't make an offer: he offered me £1,000. It turned out to be the Evo magazine fast fleet XJR, with just under £19,000 of receipts. A new MAF sensor sorted the gearbox and hesitation. It averaged 15.9mpg. When the diff went I sold it for £1,300.",
    q:"I'm currently on a bargain car session as I need my cash for other things.", src:"PistonHeads, 2013"},
-  {era:"swap", when:"Jan 2014 to Oct 2014", make:"BMW", name:"BMW 750i Sport", spec:"E65, 2006, dark blue, cream leather", f:["barge","bmw"],
+  {era:"swap", when:"Jan 2014 to Oct 2014", make:"BMW", name:"BMW 750i Sport", spec:"E65, 2006, dark blue, cream leather", f:["barge","bmw"], img:"750i.jpg",
    text:"Chosen over a Range Rover L322 and an E60 550i. Everything on it, night vision included, and a headlight fault that took BMW four visits to fix. Sold when I worked out it had done 3,000 miles in six months.",
    q:"Has to be petrol, has to be luxurious.", src:"PistonHeads, 2014"},
 
   {era:"puma", when:"Oct 2014 to Jun 2018", make:"Subaru", name:"Subaru Outback 3.0R", spec:"2005, flat six, 127,000 miles, £1,500", f:["barge","run"],
    text:"Bought from someone I knew for what a car-buying site would have paid. Not what I was after, but far too good a deal to turn down. Nearly four years later it failed its MOT badly enough that I put it on eBay for £1, no reserve, with the failure sheet in the photos."},
-  {era:"puma", when:"Feb 2015 to mid 2015", make:"Ford", name:"Ford Puma 1.7", spec:"Very yellow, £370", f:["sports","run"], tags:["Cheapest"],
+  {era:"puma", when:"Feb 2015 to mid 2015", make:"Ford", name:"Ford Puma 1.7", spec:"Very yellow, £370", f:["sports","run"], tags:["Cheapest"], img:"puma.jpg", img2:"puma-trip.jpg",
    text:"The cheapest car I've ever bought, and the one with the best story. Four Pumas met at the Channel Tunnel for a road trip, swapping fluffy dice, headlight eyelashes and stickers on the way.",
    q:"I have a Puma! It's very yellow... £370, can't complain.", src:"beex, 2015"},
   {era:"puma", when:"c. 2015 to 2018", make:"Volkswagen", name:"Volkswagen Up!", spec:"1.0 Move", f:["run"],
@@ -370,7 +373,7 @@ const CARS = [
   {era:"puma", when:"May 2019 to 2020", make:"Mazda", name:"Mazda MX-5 Mk2.5 Sport", spec:"2003, blue, 88,000 miles, £1,800", f:["sports","mx5"], tags:["MX-5 #3","Written off"],
    text:"Summer was coming, so MX-5 number three it was, with sills sorted, wheels refurbished and an MOT with no advisories before I collected it. Its end came on the M1, when we were hit by a lorry and it was written off.",
    q:"Everything works! It's been a fair old while since I've bought a car where everything actually works.", src:"beex, 2019"},
-  {era:"puma", when:"Aug 2019", make:"BMW", name:"BMW 325Ci SE Auto", spec:"E46, 2004, Mystic Blue, 125,000 miles", f:["barge","bmw"],
+  {era:"puma", when:"Aug 2019", make:"BMW", name:"BMW 325Ci SE Auto", spec:"E46, 2004, Mystic Blue, 125,000 miles", f:["barge","bmw"], img:"325ci.jpg",
    text:"The mini barge. A bit tatty in places, but nothing a good clean and a wheel refurb wouldn't fix, and BMW number eight.",
    q:"I can heartily recommend an £800 325Ci, it's bloody great.", src:"beex, 2019"},
 
@@ -402,6 +405,7 @@ ERAS.forEach(e=>{
       <div class="side"><span class="num">${String(n).padStart(2,'0')}</span><span class="when">${esc(c.when)}</span></div>
       <div>
         <h4>${esc(c.name)}<small>${esc(c.spec)}</small></h4>
+        ${c.img?`<div class="photos ${c.img2?'two':''}"><img src="img/${c.img}" alt="My ${esc(c.name)}" loading="lazy">${c.img2?`<img src="img/${c.img2}" alt="${esc(c.name)} road trip" loading="lazy">`:''}</div>`:''}
         <p>${esc(c.text)}</p>
         ${c.q?`<blockquote>&ldquo;${esc(c.q)}&rdquo;<cite>${esc(c.src)}</cite></blockquote>`:''}
         ${tags?`<div class="tags">${tags}</div>`:''}
