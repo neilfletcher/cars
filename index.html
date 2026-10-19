@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logbook: 34 Cars | Neil Fletcher</title>
+<meta name="description" content="Every car Neil Fletcher has owned, from an MG B GT to a Bentley Continental GT, with the stories told at the time on PistonHeads and beex.">
+<meta property="og:title" content="Logbook: 34 Cars">
+<meta property="og:description" content="Every car I've owned, from an MG B GT to a Bentley Continental GT, and what they cost me.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JF54HQGVLT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JF54HQGVLT');
+</script>
+
+<style>
+:root{
+  --paper:#f3ecdc;
+  --paper-2:#ebe2cc;
+  --ink:#1d2420;
+  --ink-soft:#4a524c;
+  --green:#1f4a3a;
+  --green-2:#2f6b54;
+  --red:#a8322a;
+  --gold:#b88a2c;
+  --rule:#cdbf9f;
+  --card:#fbf7ee;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+  --serif:"Newsreader", Georgia, serif;
+  --display:"Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#151a17; --paper-2:#1c231f; --ink:#ece5d4; --ink-soft:#b3ad9e;
+    --green:#7fc4a4; --green-2:#9fd8bc; --red:#e2776c; --gold:#d8b25e;
+    --rule:#3a433d; --card:#1b211d;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:19px; line-height:1.55;
+  background-image:
+    radial-gradient(rgba(0,0,0,.035) 1px, transparent 1px);
+  background-size:4px 4px;
+}
+a{color:var(--green)}
+a:hover{color:var(--red)}
+.wrap{max-width:1080px; margin:0 auto; padding:0 20px}
+
+/* Masthead */
+header.mast{border-bottom:3px double var(--rule); padding:28px 0 0}
+.topline{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft)}
+.topline a{color:inherit; text-decoration:none}
+.topline a:hover{color:var(--red)}
+.hero{display:grid; grid-template-columns:1.35fr 1fr; gap:40px; align-items:end; padding:48px 0 40px}
+.hero h1{font-family:var(--display); font-weight:800; font-size:clamp(52px, 9vw, 112px); line-height:.9; margin:0; letter-spacing:-.02em}
+.hero h1 em{font-style:normal; color:var(--red)}
+.hero .sub{font-family:var(--display); font-weight:400; font-size:clamp(20px,2.4vw,26px); margin:18px 0 0; color:var(--ink-soft); max-width:30ch}
+.stamp{
+  border:2px solid var(--green); color:var(--green); padding:18px 20px; transform:rotate(-1.5deg);
+  font-family:var(--mono); font-size:13px; line-height:1.7; background:var(--card); max-width:380px; justify-self:end;
+}
+.stamp b{display:block; font-size:11px; letter-spacing:.18em; text-transform:uppercase; border-bottom:1px dashed var(--green); padding-bottom:6px; margin-bottom:8px}
+.stamp dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:2px 14px}
+.stamp dt{opacity:.75}
+.stamp dd{margin:0; text-align:right}
+
+/* Intro */
+.intro{display:grid; grid-template-columns:1fr 1fr; gap:40px; padding:44px 0; border-bottom:1px solid var(--rule)}
+.intro p{margin:0 0 14px}
+.intro p:first-child::first-letter{font-family:var(--display); font-weight:800; float:left; font-size:68px; line-height:.85; padding:6px 10px 0 0; color:var(--green)}
+
+/* Stats */
+.stats{display:grid; grid-template-columns:repeat(6,1fr); border-bottom:1px solid var(--rule)}
+.stat{padding:26px 14px; border-right:1px solid var(--rule); text-align:center}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--display); font-weight:800; font-size:44px; line-height:1; color:var(--green)}
+.stat .l{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px}
+
+/* Section heads */
+.sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap; padding:56px 0 18px}
+.sec-head h2{font-family:var(--display); font-weight:800; font-size:40px; margin:0; letter-spacing:-.01em}
+.sec-head p{margin:0; color:var(--ink-soft); font-style:italic}
+
+/* Filters */
+.filters{display:flex; flex-wrap:wrap; gap:8px; padding-bottom:20px; position:sticky; top:0; z-index:5; background:var(--paper); padding-top:12px}
+.filters button{
+  font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  background:transparent; color:var(--ink); border:1px solid var(--rule); padding:8px 12px; cursor:pointer; border-radius:2px;
+}
+.filters button[aria-pressed="true"]{background:var(--green); color:var(--paper); border-color:var(--green)}
+.filters button:hover{border-color:var(--green)}
+
+/* Timeline */
+.era{margin:34px 0 8px; display:grid; grid-template-columns:150px 1fr; column-gap:24px; row-gap:0; align-items:baseline}
+.era h3{font-family:var(--display); font-weight:600; font-size:26px; margin:0}
+.era .yrs{font-family:var(--mono); font-size:13px; color:var(--red); letter-spacing:.06em}
+.era p{grid-column:2; margin:4px 0 0; color:var(--ink-soft); font-style:italic}
+.era.hidden{display:none}
+
+.entry{
+  display:grid; grid-template-columns:150px 1fr; gap:24px; padding:22px 0; border-top:1px solid var(--rule);
+}
+.entry.hidden{display:none}
+.entry .side{font-family:var(--mono); font-size:13px; color:var(--ink-soft)}
+.entry .num{font-family:var(--display); font-weight:800; font-size:34px; color:var(--rule); line-height:1}
+.entry .when{display:block; margin-top:6px; color:var(--red)}
+.entry h4{font-family:var(--display); font-weight:600; font-size:28px; line-height:1.1; margin:0}
+.entry h4 small{display:block; font-family:var(--mono); font-weight:400; font-size:13px; letter-spacing:.04em; color:var(--ink-soft); margin-top:6px}
+.entry p{margin:10px 0 0; max-width:68ch}
+.entry blockquote{
+  margin:14px 0 0; padding:10px 0 10px 18px; border-left:3px solid var(--gold);
+  font-style:italic; color:var(--ink); max-width:62ch;
+}
+.entry blockquote cite{display:block; font-style:normal; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-soft); margin-top:6px; text-transform:uppercase}
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
+.tag{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:3px 7px; border:1px solid var(--rule); color:var(--ink-soft)}
+.tag.hot{border-color:var(--red); color:var(--red)}
+.tag.now{border-color:var(--green); color:var(--paper); background:var(--green)}
+
+/* Verdicts */
+.verdicts{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding-bottom:20px}
+.v{background:var(--card); border:1px solid var(--rule); padding:22px; position:relative}
+.v .k{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--red)}
+.v .c{font-family:var(--display); font-weight:800; font-size:26px; line-height:1.1; margin:8px 0 8px}
+.v p{margin:0; font-size:17px; color:var(--ink-soft)}
+
+/* Makes chart */
+.makes{padding-bottom:10px}
+.bar{display:grid; grid-template-columns:130px 1fr 32px; gap:12px; align-items:center; margin:7px 0; font-family:var(--mono); font-size:13px}
+.bar .track{height:14px; background:var(--paper-2); border:1px solid var(--rule)}
+.bar .fill{height:100%; background:var(--green)}
+.bar .ct{text-align:right; color:var(--ink-soft)}
+
+footer{border-top:3px double var(--rule); margin-top:60px; padding:30px 0 50px; font-family:var(--mono); font-size:12px; color:var(--ink-soft); line-height:1.8}
+footer .cols{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap}
+
+@media (max-width:860px){
+  body{font-size:18px}
+  .hero{grid-template-columns:1fr; gap:28px; padding:36px 0 30px}
+  .stamp{justify-self:start}
+  .intro{grid-template-columns:1fr; gap:0}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .stat:nth-child(3){border-right:0}
+  .stat:nth-child(-n+3){border-bottom:1px solid var(--rule)}
+  .verdicts{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .era,.entry{grid-template-columns:1fr; gap:6px}
+  .era p{grid-column:1}
+  .entry .side{display:flex; align-items:baseline; gap:12px}
+  .entry .num{font-size:24px}
+  .entry .when{margin:0}
+  .verdicts{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:1px solid var(--rule)!important; border-bottom:1px solid var(--rule)}
+  .stat:nth-child(2n){border-right:0!important}
+  .bar{grid-template-columns:96px 1fr 26px}
+  .sec-head h2{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="topline">
+      <span>Logbook / Vehicle history</span>
+      <a href="https://neilfletcher.github.io/">neilfletcher.github.io &rarr;</a>
+    </div>
+    <div class="hero">
+      <div>
+        <h1>34 cars.<br>4 <em>MX-5s.</em></h1>
+        <p class="sub">Every car I've owned, from an MG B GT to a Bentley, with the stories I told on the forums at the time.</p>
+      </div>
+      <div class="stamp" aria-label="Registration summary">
+        <b>Registered keeper record</b>
+        <dl>
+          <dt>Keeper</dt><dd>Neil Fletcher</dd>
+          <dt>Vehicles</dt><dd>34</dd>
+          <dt>First</dt><dd>MG B GT</dd>
+          <dt>Latest</dt><dd>Bentley Continental GT</dd>
+          <dt>Cheapest</dt><dd>Ford Puma, &pound;370</dd>
+          <dt>Most expensive</dt><dd>Lotus Evora S, &pound;40,250</dd>
+          <dt>Current fleet</dt><dd>3</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro" aria-label="Introduction">
+    <div>
+      <p>Since 2003 I've been posting on PistonHeads, and since 2008 on the beex forums. Between them they hold a fairly complete, fairly embarrassing record of every car I've bought, broken, fixed, regretted and sold. This page pulls it all together.</p>
+      <p>The pattern is easy to spot. A sensible car gets bought, then something loud or fast or enormous replaces it, then a bill arrives, then a cheap barge turns up on eBay. Repeat for thirty-odd years.</p>
+    </div>
+    <div>
+      <p>Some overlapped, some were household runarounds rather than mine alone, and for the early ones the dates are best guesses. Where I've quoted myself, those are my own words from the forums at the time, typos tidied.</p>
+      <p>The rules I've learned the hard way: a £1,000 Lexus LS400 is the best car you can buy, a £15,500 Cerbera is not a £15,500 car, and there is always room for another MX-5.</p>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Numbers">
+    <div class="stat"><div class="n">34</div><div class="l">Cars</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">BMWs</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">MX-5s</div></div>
+    <div class="stat"><div class="n">18</div><div class="l">Makes</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">Bought new</div></div>
+    <div class="stat"><div class="n">15.9</div><div class="l">Worst mpg (XJR)</div></div>
+  </section>
+
+  <div class="sec-head">
+    <h2>The garage, in order</h2>
+    <p>Oldest first. Filter by type.</p>
+  </div>
+
+  <div class="filters" role="group" aria-label="Filter cars">
+    <button type="button" data-f="all" aria-pressed="true">All 34</button>
+    <button type="button" data-f="sports">Sports cars</button>
+    <button type="button" data-f="barge">Barges</button>
+    <button type="button" data-f="track">Track</button>
+    <button type="button" data-f="run">Runarounds</button>
+    <button type="button" data-f="bmw">BMW</button>
+    <button type="button" data-f="mx5">MX-5</button>
+  </div>
+
+  <div id="timeline"></div>
+
+  <div class="sec-head">
+    <h2>Verdicts</h2>
+    <p>With hindsight, and receipts.</p>
+  </div>
+  <section class="verdicts">
+    <div class="v"><div class="k">Favourite ever</div><div class="c">Honda NSX</div><p>Reliable, sublime, the best gearbox ever made. Sold at nearly 100,000 miles and still missed.</p></div>
+    <div class="v"><div class="k">Most expensive to run</div><div class="c">TVR Cerbera 4.2</div><p>&pound;10,875 in year one, including &pound;3,200 of petrol. About &pound;7k more later for an engine and gearbox.</p></div>
+    <div class="v"><div class="k">Best value</div><div class="c">Lexus LS400</div><p>Bought twice, for &pound;1,000 and then &pound;595. Nothing at any price feels as calm at 100mph.</p></div>
+    <div class="v"><div class="k">Best deal</div><div class="c">Jaguar XJR</div><p>Bought for &pound;1,000, an ex-Evo fast fleet car, sold seven months later for &pound;1,300 with a broken diff.</p></div>
+    <div class="v"><div class="k">Most complete</div><div class="c">Lotus Evora S</div><p>The best everyday driver's car I've had. Shame about the boot filling with water.</p></div>
+    <div class="v"><div class="k">The one I miss</div><div class="c">Toyota MR2 Turbo</div><p>Of all the early cars, still the one I'd have back first.</p></div>
+  </section>
+
+  <div class="sec-head">
+    <h2>By make</h2>
+    <p>Eight BMWs. That explains a lot.</p>
+  </div>
+  <section class="makes" id="makes" aria-label="Cars by make"></section>
+
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      Compiled from my PistonHeads garage and post history (trooperiziz, formerly trooper1212)<br>
+      and the "Gas Guzzling Money Pits" thread on beex (Trooper).
+    </div>
+    <div>
+      <a href="https://neilfletcher.github.io/">Back to the build log</a><br>
+      Last updated October 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+const ERAS = [
+  {id:"early", title:"The early years", yrs:"1990s to 2001", blurb:"Classics, hot hatches and the first of many MX-5s."},
+  {id:"super", title:"Supercars on a budget", yrs:"2001 to 2007", blurb:"An NSX, a Cerbera, a track Golf and the discovery of the £1,000 Lexus."},
+  {id:"barge", title:"Barges and toys", yrs:"2007 to 2011", blurb:"A daily wafter for the commute, something silly for the weekend."},
+  {id:"swap", title:"Nearly new, and back again", yrs:"2011 to 2014", blurb:"My first new car, a brand-new Lotus, then straight back to eBay specials."},
+  {id:"puma", title:"Pumas and practicality", yrs:"2014 to 2020", blurb:"Estate cars, cheap BMWs and a road trip in a yellow Ford."},
+  {id:"now", title:"The current fleet", yrs:"2020 to now", blurb:"One for sunny days, one for pottering, one for wafting."}
+];
+
+const CARS = [
+  {era:"early", when:"1990s", make:"MG", name:"MG B GT", spec:"Classic GT", f:["sports"],
+   text:"Where it all started. Years later, when a friend offered to swap his '66 MGB roadster for my Cerbera, I turned him down on the grounds that I'd done the B thing already.",
+   q:"Shame I've done the B thing before, otherwise you'd have had a deal", src:"PistonHeads, 2004"},
+  {era:"early", when:"1990s", make:"Vauxhall", name:"Vauxhall Nova", spec:"1.2 Antibes", f:["run"],
+   text:"The Antibes special edition, all 1.2 litres of it. Every car history needs one."},
+  {era:"early", when:"1990s", make:"Toyota", name:"Toyota MR2 Turbo", spec:"Mk2, mid-engined, turbocharged", f:["sports"], tags:["Most missed"],
+   text:"My first properly quick car, and the one that taught me what fast really was when I tried to lose an NSX down a B road and couldn't. When the turbo started playing up on cold starts I warmed it up and traded it in for a banana yellow MX-5.",
+   q:"The car I miss most is the mr2... at that age the mr2 was a lot more refined and a nicer place to be.", src:"PistonHeads, 2005"},
+  {era:"early", when:"Late 1990s", make:"Mazda", name:"Mazda MX-5 Eunos", spec:"1.6, 1992, canary yellow", f:["sports","mx5"], tags:["MX-5 #1"],
+   text:"A Japanese import Eunos, owned for about eighteen months. Great fun, and many a morning was spent scraping ice off the inside of the windscreen. I never took it on track, which I put right with MX-5 number two.",
+   q:"I think the colour made me forget everything else, canary yellow, what was I thinking...", src:"PistonHeads, 2009"},
+  {era:"early", when:"c. 2000", make:"BMW", name:"BMW 520i", spec:"E28, brown", f:["barge","bmw"],
+   text:"BMW number one of eight. Brown, boxy and much loved. Brown is back in fashion, apparently.",
+   q:"I used to own a brown E28 520i, it was great", src:"beex, 2011"},
+
+  {era:"super", when:"c. 2001 to 2003", make:"Honda", name:"Honda NSX", spec:"Red, bought at ten years old", f:["sports"], tags:["Favourite ever"], hot:true,
+   text:"Bought on impulse: I went from deciding I wanted one to having it on the drive in under 24 hours. 25,000 trouble-free miles, servicing at normal Honda prices, rear tyres every 5,000 miles, and a spell in the NSX Club of Britain. I sold it as it closed in on 100,000 miles, which took six months, and I've regretted it ever since.",
+   q:"It has a huge amount of feel, kick in the pants power, a gorgeous engine note, the best gearbox ever made, perfect weight distribution, and is completely reliable. If that isn't character then I want all my cars to be characterless.", src:"PistonHeads, 2008"},
+  {era:"super", when:"Oct 2003 to Jul 2007", make:"TVR", name:"TVR Cerbera 4.2", spec:"1996 N-reg, Rosso Pearl, £15,500", f:["sports"], tags:["Money pit"], hot:true,
+   text:"I went looking for a Griffith 500 and came home with a deposit down on a Cerbera. It was my only car for three years and it cost a fortune. The first four months found 15 of 16 valve springs broken, a welded-up engine mount and a dead alternator on the M1. The first year came to £10,875 all in. In 2005 it had a full engine rebuild, then the gearbox let go on the M1 on the way back up to Newcastle. Sold in July 2007, after a passenger window that wouldn't go up gave it a proper TVR send-off.",
+   q:"That car was horrendously unreliable and built like crap, yet I'd still have another.", src:"beex, 2012"},
+  {era:"super", when:"c. 2003 to 2005", make:"Volkswagen", name:"Volkswagen Golf GTI Mk1", spec:"1900 conversion, track prepped", f:["track"],
+   text:"The weekend car alongside the Cerbera. Under a grand, stripped for track days, and every bit as quick as the TVR on a B road. I changed the head gasket myself and learned that the Mk1 Golf Haynes manual is no use to anyone.",
+   q:"Compared to the Cerb, the feel through the steering is amazing, but then compared to the Cerb it's also infinitely quicker at the moment, as the Cerb is back in the garage AGAIN!", src:"PistonHeads, 2004"},
+  {era:"super", when:"c. 2005 to 2006", make:"BMW", name:"BMW 530i SE Auto", spec:"E39", f:["barge","bmw"],
+   text:"The daily driver for the short commute once the Cerbera had become a weekend toy. By summer 2006 it was on its last legs, which is how the Lexus happened."},
+  {era:"super", when:"Sep 2006 to 2007", make:"Lexus", name:"Lexus LS400", spec:"1990s V8 saloon, £1,000 off eBay", f:["barge"], tags:["Best value"],
+   text:"I asked PistonHeads whether there was any reason not to spend £1,500 on a beaten-up LS400 for a five-mile commute, then paid a grand after some negotiation. For a while it shared the drive with the Cerbera, so I owned two of the best V8s ever made. When the exhaust went I sold it on eBay for spares and still got £300.",
+   q:"I'm not exaggerating when I say that 100mph feels exactly the same as 70mph, which feels the same as 30mph.", src:"PistonHeads, 2006"},
+  {era:"super", when:"2007", make:"Nissan", name:"Nissan Micra", spec:"1.3, 1998", f:["run"],
+   text:"With the Cerbera and the Lexus both sold, I borrowed a family Micra to potter about in while the flat sale went through. Nice little thing to bomb around town in. Not a Cerbera.",
+   q:"I'm now currently driving round in a Nissan Micra, which just isn't the same to be honest.", src:"PistonHeads, 2007"},
+
+  {era:"barge", when:"Nov 2007 to 2008", make:"Jaguar", name:"Jaguar XJ6", spec:"XJ40 3.2 Gold, 1994", f:["barge"],
+   text:"Bought off eBay for button money while I was daydreaming about American muscle. It needed headlights, passenger windows and a radio, all of which turned out to be two fuses. 3,000 miles later I'd had my money's worth."},
+  {era:"barge", when:"c. 2008 to 2009", make:"Volkswagen", name:"Volkswagen Phaeton", spec:"3.2 V6", f:["barge"],
+   text:"Daily wafting, the occasional run up the M1 and the weekly trip to the airport. It did 24mpg on my 40-mile commute and fitted my allocated parking space badly. It failed its MOT on tyres the day before I sold it.",
+   q:"The Phaeton really is a lovely car, and it does what it does extremely well, but it's just too damn big.", src:"PistonHeads, 2009"},
+  {era:"barge", when:"Jun 2009 to Sep 2014", make:"Mazda", name:"Mazda MX-5", spec:"1.8i Mk1, track car", f:["sports","track","mx5"], tags:["MX-5 #2"],
+   text:"I put a cheeky low bid on a badly advertised one on eBay, fully expecting to be outbid, and won. It slowly turned into a proper track car with a roll bar, harnesses and less of everything else. It finally got its first track day at Bedford in May 2013, all written up on its own blog. Sold in 2014 after five years.",
+   q:"Time for something I can slide around a bit.", src:"PistonHeads, 2009"},
+  {era:"barge", when:"Sep 2009", make:"Porsche", name:"Porsche 944 Turbo", spec:"£3.5k, plus spares", f:["sports"],
+   text:"I've always had a healthy disdain for anything 911-shaped, so I went in nervously. I came out with a 944 Turbo for just over £3,500 and enough spares to almost build another, including a Promax Link ECU and the turbo from the later 250bhp model.",
+   q:"Shhhh... don't let anybody know that I'm in here, the Cerbera boys will never forgive me.", src:"PistonHeads, 2009"},
+  {era:"barge", when:"Dec 2009 to Jan 2011", make:"BMW", name:"BMW M5", spec:"E39, 2000", f:["sports","barge","bmw"],
+   text:"The proper one. Memorable mostly for a spilt McDonald's Coke that shorted the seat recline motor, which then drove me slowly and steadily towards the steering wheel at 70mph on a dual carriageway. Sold in January 2011 when petrol prices got silly.",
+   q:"It's a mildly disconcerting feeling to be travelling at 70.1 mph, while the speedo is showing 70.", src:"PistonHeads, 2010"},
+
+  {era:"swap", when:"Mar 2011 to Jun 2012", make:"Fiat", name:"Abarth 500", spec:"Bossa Nova White, ordered new", f:["sports","run"], tags:["Only new car"],
+   text:"From a V8 M5 to a 1.4 Fiat. Ordered in white with side stripes, climate control and black leather, and the closest thing I'd driven to my stripped Mk1 Golf. I logged every fill-up on Fuelly: 34.3mpg on average, whatever the dash claimed. It went in as part of the Evora deposit.",
+   q:"I've never owned a new car before, I'm quite excited by the prospect.", src:"beex, 2011"},
+  {era:"swap", when:"2011 to Feb 2012", make:"Nissan", name:"Nissan Micra", spec:"1.0, 1999 facelift", f:["run"],
+   text:"The household runaround. It came without a stereo, and I bought the wrong ISO adaptor first time. It went on eBay for a little over £500, more than I'd expected."},
+  {era:"swap", when:"Feb 2012 to Jul 2012", make:"BMW", name:"BMW 735i", spec:"E38, 1999, one owner, £1,350", f:["barge","bmw"],
+   text:"Bought for a 110-mile daily motorway commute, which was not the economical choice. One owner, 116,000 miles, full history, immaculate. Sold on to a fellow beex member, which kept it in the family."},
+  {era:"swap", when:"Apr 2012", make:"Renault", name:"Renault Clio dCi 80", spec:"2005 Dynamique, diesel", f:["run"],
+   text:"Bought as the household's cheap, reliable commuter. It needed a £1,650 injector repair within months, the most I spent fixing any car in five years.",
+   q:"Cheap it was, reliable it was not.", src:"beex, 2019"},
+  {era:"swap", when:"Jul 2012 to Feb 2013", make:"Lotus", name:"Lotus Evora S", spec:"2011, red, 345bhp, 1,700 miles", f:["sports"], tags:["Most complete"], hot:true,
+   text:"I looked at a Cayman S, an Aston Vantage and a few 911s, and loved the Evora most. Bought from Lotus Silverstone for £40,250 and sold six months later for £37,000. The boot filled with water whenever it rained, the oil lines were recalled for a fire risk, and a £20 Mondeo switch unlocks the £350 power-fold mirror option.",
+   q:"The Evora is amazing, I've never owned a more complete, every day drivers car.", src:"beex, 2012"},
+  {era:"swap", when:"Feb 2013 to Jun 2013", make:"Lexus", name:"Lexus LS400", spec:"1994, 120,000 miles, £595", f:["barge"], tags:["Second time round"],
+   text:"Bought over the phone first thing in the morning after it appeared in the PistonHeads bargain barge thread, to tide me over while the Evora sold. It needed a power steering pump, which the selling garage fitted for free. It was replaced, inevitably, by something cheaper and faster.",
+   q:"Take a look at my car history, this isn't my first rodeo.", src:"PistonHeads, 2013"},
+  {era:"swap", when:"Jun 2013 to Jan 2014", make:"Jaguar", name:"Jaguar XJR", spec:"2000 X308, supercharged V8, Cat D", f:["barge","sports"], tags:["Best deal"],
+   text:"Advertised by a fellow PHer at £1,250 no offers, and I didn't make an offer: he offered me £1,000. It turned out to be the Evo magazine fast fleet XJR, with just under £19,000 of receipts. A new MAF sensor sorted the gearbox and hesitation. It averaged 15.9mpg. When the diff went I sold it for £1,300.",
+   q:"I'm currently on a bargain car session as I need my cash for other things.", src:"PistonHeads, 2013"},
+  {era:"swap", when:"Jan 2014 to Oct 2014", make:"BMW", name:"BMW 750i Sport", spec:"E65, 2006, dark blue, cream leather", f:["barge","bmw"],
+   text:"Chosen over a Range Rover L322 and an E60 550i. Everything on it, night vision included, and a headlight fault that took BMW four visits to fix. Sold when I worked out it had done 3,000 miles in six months.",
+   q:"Has to be petrol, has to be luxurious.", src:"PistonHeads, 2014"},
+
+  {era:"puma", when:"Oct 2014 to Jun 2018", make:"Subaru", name:"Subaru Outback 3.0R", spec:"2005, flat six, 127,000 miles, £1,500", f:["barge","run"],
+   text:"Bought from someone I knew for what a car-buying site would have paid. Not what I was after, but far too good a deal to turn down. Nearly four years later it failed its MOT badly enough that I put it on eBay for £1, no reserve, with the failure sheet in the photos."},
+  {era:"puma", when:"Feb 2015 to mid 2015", make:"Ford", name:"Ford Puma 1.7", spec:"Very yellow, £370", f:["sports","run"], tags:["Cheapest"],
+   text:"The cheapest car I've ever bought, and the one with the best story. Four Pumas met at the Channel Tunnel for a road trip, swapping fluffy dice, headlight eyelashes and stickers on the way.",
+   q:"I have a Puma! It's very yellow... £370, can't complain.", src:"beex, 2015"},
+  {era:"puma", when:"c. 2015 to 2018", make:"Volkswagen", name:"Volkswagen Up!", spec:"1.0 Move", f:["run"],
+   text:"A city car with an exclamation mark: a litre of petrol engine, four seats, a little boot and about 65mpg. Not a lot to say about it, which is probably a compliment."},
+  {era:"puma", when:"Jun 2018 to Nov 2018", make:"BMW", name:"BMW 520i SE", spec:"E39, 2001, one owner, 148,000 miles", f:["barge","bmw"],
+   text:"The Outback's replacement, found within walking distance and on nearly new Continentals. It's not an E39 unless the dash display has dodgy pixels. It soon started burning enough oil to be annoying."},
+  {era:"puma", when:"Nov 2018 to May 2019", make:"BMW", name:"BMW 745i", spec:"E65, 2003, bought sight unseen", f:["barge","bmw"],
+   text:"The obvious answer to an oil-burning 520i, obviously, was £2,000 on a 745i in Edinburgh, sight unseen. Six months later the gearbox went, with what I described at the time as minor smoke and a mild fire.",
+   q:"The obvious thing to do is to spend 2 grand on a 2003 745i sight unseen in Edinburgh, right?", src:"beex, 2018"},
+  {era:"puma", when:"May 2019 to 2020", make:"Mazda", name:"Mazda MX-5 Mk2.5 Sport", spec:"2003, blue, 88,000 miles, £1,800", f:["sports","mx5"], tags:["MX-5 #3","Written off"],
+   text:"Summer was coming, so MX-5 number three it was, with sills sorted, wheels refurbished and an MOT with no advisories before I collected it. Its end came on the M1, when we were hit by a lorry and it was written off.",
+   q:"Everything works! It's been a fair old while since I've bought a car where everything actually works.", src:"beex, 2019"},
+  {era:"puma", when:"Aug 2019", make:"BMW", name:"BMW 325Ci SE Auto", spec:"E46, 2004, Mystic Blue, 125,000 miles", f:["barge","bmw"],
+   text:"The mini barge. A bit tatty in places, but nothing a good clean and a wheel refurb wouldn't fix, and BMW number eight.",
+   q:"I can heartily recommend an £800 325Ci, it's bloody great.", src:"beex, 2019"},
+
+  {era:"now", when:"2020 to now", make:"Mazda", name:"Mazda MX-5 1.8i S", spec:"Mk2, 1998, 29,000 miles", f:["sports","mx5"], tags:["MX-5 #4"], now:true,
+   text:"Bought from family who never used it: close to immaculate, with sills that aren't rotten. These days it lives in the garage and comes out on sunny days.",
+   q:"It's weird to drive an MX5 with a non-broken gearbox, every other one I've had has been 80,000 miles plus.", src:"beex, 2020"},
+  {era:"now", when:"Jul 2023 to now", make:"Nissan", name:"Nissan Leaf e+", spec:"62kWh, 3.Zero", f:["run"], now:true,
+   text:"My first electric car, chosen over a Kona because it holds its value better. About 200 miles of range, enough for the round trip to see my dad, and ideal for pottering.",
+   q:"Today I have bought a Leaf to go with the MX5. Look at me being all environmentally conscious.", src:"beex, 2023"},
+  {era:"now", when:"Apr 2026 to now", make:"Bentley", name:"Bentley Continental GT", spec:"W12 grand tourer, bought April 2026", f:["barge","sports"], now:true, hot:true,
+   text:"The car the bargain barge threads were always pointing at. A third car alongside the Leaf and the MX-5, and at about 4,000 miles a year the fuel bill is not the point.",
+   q:"18.4 mpg on the way home from picking it up, positively frugal.", src:"beex, 2026"}
+];
+
+const tl = document.getElementById('timeline');
+let n = 0;
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+ERAS.forEach(e=>{
+  const head = document.createElement('div');
+  head.className='era'; head.dataset.era=e.id;
+  head.innerHTML = `<span class="yrs">${esc(e.yrs)}</span><h3>${esc(e.title)}</h3><p>${esc(e.blurb)}</p>`;
+  tl.appendChild(head);
+  CARS.filter(c=>c.era===e.id).forEach(c=>{
+    n++;
+    const el = document.createElement('article');
+    el.className='entry'; el.dataset.era=e.id; el.dataset.f=c.f.join(' ');
+    const tags = (c.tags||[]).map(t=>`<span class="tag ${c.hot?'hot':''}">${esc(t)}</span>`).join('') + (c.now?'<span class="tag now">In the garage</span>':'');
+    el.innerHTML = `
+      <div class="side"><span class="num">${String(n).padStart(2,'0')}</span><span class="when">${esc(c.when)}</span></div>
+      <div>
+        <h4>${esc(c.name)}<small>${esc(c.spec)}</small></h4>
+        <p>${esc(c.text)}</p>
+        ${c.q?`<blockquote>&ldquo;${esc(c.q)}&rdquo;<cite>${esc(c.src)}</cite></blockquote>`:''}
+        ${tags?`<div class="tags">${tags}</div>`:''}
+      </div>`;
+    tl.appendChild(el);
+  });
+});
+
+document.querySelectorAll('.filters button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    const f=b.dataset.f;
+    const shownEras=new Set();
+    document.querySelectorAll('.entry').forEach(el=>{
+      const show = f==='all' || el.dataset.f.split(' ').includes(f);
+      el.classList.toggle('hidden',!show);
+      if(show) shownEras.add(el.dataset.era);
+    });
+    document.querySelectorAll('.era').forEach(h=>h.classList.toggle('hidden',!shownEras.has(h.dataset.era)));
+    if (typeof gtag==='function') gtag('event','filter_cars',{filter:f});
+  });
+});
+
+const counts={}; CARS.forEach(c=>counts[c.make]=(counts[c.make]||0)+1);
+const max=Math.max(...Object.values(counts));
+const mk=document.getElementById('makes');
+Object.entries(counts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).forEach(([m,v])=>{
+  const row=document.createElement('div'); row.className='bar';
+  row.innerHTML=`<span>${esc(m)}</span><div class="track"><div class="fill" style="width:${(v/max*100).toFixed(1)}%"></div></div><span class="ct">${v}</span>`;
+  mk.appendChild(row);
+});
+</script>
+</body>
+</html>
