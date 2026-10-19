@@ -145,6 +145,45 @@ header.mast{border-bottom:3px double var(--rule); padding:28px 0 0}
 .bar .fill{height:100%; background:var(--green)}
 .bar .ct{text-align:right; color:var(--ink-soft)}
 
+
+.specline{display:flex; flex-wrap:wrap; gap:4px 0; margin-top:10px; font-family:var(--mono); font-size:12px; color:var(--green)}
+.specline span{padding-right:10px; margin-right:10px; border-right:1px solid var(--rule)}
+.specline span:last-child{border-right:0}
+.sorts{display:flex; gap:8px; flex-wrap:wrap; margin-left:auto}
+.filters .sep{width:1px; background:var(--rule); margin:0 6px}
+/* numbers */
+.hero-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+.hero-stats div{padding:22px 16px; border-right:1px solid var(--rule)}
+.hero-stats div:last-child{border-right:0}
+.hero-stats b{display:block; font-family:var(--display); font-weight:800; font-size:40px; line-height:1; color:var(--green)}
+.hero-stats span{display:block; margin-top:8px; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft)}
+.chart-wrap{position:relative; margin:30px 0 10px}
+.chart-wrap h3{font-family:var(--display); font-weight:600; font-size:24px; margin:0 0 4px}
+.chart-wrap p.sub{margin:0 0 14px; color:var(--ink-soft); font-style:italic; font-size:17px}
+#powerChart{width:100%; height:auto; display:block; overflow:visible}
+.chart-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+@media (max-width:600px){ #powerChart{min-width:720px} }
+#powerChart .bar{fill:var(--green-2); opacity:.55}
+#powerChart .bar.top{fill:var(--green); opacity:1}
+#powerChart .hit{fill:transparent; cursor:pointer}
+#powerChart .hit:hover + .bar, #powerChart g:hover .bar{fill:var(--red); opacity:1}
+#powerChart .axis text{font-family:var(--mono); font-size:11px; fill:var(--ink-soft)}
+#powerChart .grid line{stroke:var(--rule); stroke-width:1}
+#powerChart .lbl{font-family:var(--mono); font-size:11px; fill:var(--ink)}
+.tip{position:absolute; pointer-events:none; background:var(--card); border:1px solid var(--rule); padding:8px 10px; font-family:var(--mono); font-size:12px; line-height:1.5; color:var(--ink); box-shadow:0 4px 14px rgba(0,0,0,.12); opacity:0; transition:opacity .1s; white-space:nowrap; z-index:3}
+.tip b{font-family:var(--display); font-size:15px}
+.facts{display:grid; grid-template-columns:1fr 1fr; gap:14px 40px; margin:30px 0 10px; padding:0; list-style:none}
+.facts li{padding:14px 0 14px 18px; border-left:3px solid var(--gold)}
+.facts li strong{display:block; font-family:var(--display); font-weight:600; font-size:21px; margin-bottom:4px}
+.facts li span{color:var(--ink-soft); font-size:17px}
+.split{display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:20px}
+.split h3{font-family:var(--display); font-weight:600; font-size:22px; margin:0 0 10px}
+.toptable{width:100%; border-collapse:collapse; font-family:var(--mono); font-size:13px}
+.toptable th{text-align:left; font-weight:500; color:var(--ink-soft); font-size:11px; text-transform:uppercase; letter-spacing:.08em; border-bottom:1px solid var(--rule); padding:6px 4px}
+.toptable td{padding:6px 4px; border-bottom:1px solid var(--rule)}
+.toptable td.r,.toptable th.r{text-align:right}
+@media (max-width:860px){ .hero-stats{grid-template-columns:1fr 1fr} .hero-stats div:nth-child(2){border-right:0} .hero-stats div:nth-child(-n+2){border-bottom:1px solid var(--rule)} .facts,.split{grid-template-columns:1fr} }
+
 footer{border-top:3px double var(--rule); margin-top:60px; padding:30px 0 50px; font-family:var(--mono); font-size:12px; color:var(--ink-soft); line-height:1.8}
 footer .cols{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap}
 
@@ -221,7 +260,7 @@ footer .cols{display:flex; justify-content:space-between; gap:24px; flex-wrap:wr
     <div class="stat"><div class="n">8</div><div class="l">BMWs</div></div>
     <div class="stat"><div class="n">4</div><div class="l">MX-5s</div></div>
     <div class="stat"><div class="n">18</div><div class="l">Makes</div></div>
-    <div class="stat"><div class="n">1</div><div class="l">Bought new</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Current fleet</div></div>
     <div class="stat"><div class="n">15.9</div><div class="l">Worst mpg (XJR)</div></div>
   </section>
 
@@ -230,6 +269,7 @@ footer .cols{display:flex; justify-content:space-between; gap:24px; flex-wrap:wr
     <p>Oldest first. Filter by type.</p>
   </div>
 
+  <div class="garage">
   <div class="filters" role="group" aria-label="Filter cars">
     <button type="button" data-f="all" aria-pressed="true">All 34</button>
     <button type="button" data-f="sports">Sports cars</button>
@@ -238,9 +278,35 @@ footer .cols{display:flex; justify-content:space-between; gap:24px; flex-wrap:wr
     <button type="button" data-f="run">Runarounds</button>
     <button type="button" data-f="bmw">BMW</button>
     <button type="button" data-f="mx5">MX-5</button>
+    <span class="sep" aria-hidden="true"></span>
+    <button type="button" data-sort="order" aria-pressed="true">Oldest first</button>
+    <button type="button" data-sort="bhp" aria-pressed="false">Most bhp</button>
+    <button type="button" data-sort="z" aria-pressed="false">Quickest</button>
   </div>
 
   <div id="timeline"></div>
+  </div>
+
+  <div class="sec-head" id="numbers">
+    <h2>By the numbers</h2>
+    <p>Factory figures, roughly. My own mpg where I logged it.</p>
+  </div>
+  <section class="hero-stats" id="heroStats"></section>
+  <div class="chart-wrap">
+    <h3>Power, car by car</h3>
+    <p class="sub">Brake horsepower in the order I owned them. Hover for details.</p>
+    <div class="chart-scroll"><svg id="powerChart" role="img" aria-label="Bar chart of brake horsepower for each car in ownership order"></svg></div>
+    <div class="tip" id="tip"></div>
+  </div>
+  <ul class="facts" id="facts"></ul>
+  <div class="split">
+    <div><h3>Top five by power</h3><table class="toptable" id="topPower"></table></div>
+    <div><h3>Top five by 0-60</h3><table class="toptable" id="topQuick"></table></div>
+  </div>
+  <div class="split">
+    <div><h3>Where they came from</h3><div id="countries"></div></div>
+    <div><h3>Cylinders</h3><div id="cyls"></div></div>
+  </div>
 
   <div class="sec-head">
     <h2>Verdicts</h2>
@@ -305,15 +371,15 @@ const CARS = [
   {era:"super", when:"c. 2001 to 2003", make:"Honda", name:"Honda NSX", spec:"Red, bought at ten years old", f:["sports"], tags:["Favourite ever"], hot:true,
    text:"Bought on impulse: I went from deciding I wanted one to having it on the drive in under 24 hours. 25,000 trouble-free miles, servicing at normal Honda prices, rear tyres every 5,000 miles, and a spell in the NSX Club of Britain. I sold it as it closed in on 100,000 miles, which took six months, and I've regretted it ever since.",
    q:"It has a huge amount of feel, kick in the pants power, a gorgeous engine note, the best gearbox ever made, perfect weight distribution, and is completely reliable. If that isn't character then I want all my cars to be characterless.", src:"PistonHeads, 2008"},
-  {era:"super", when:"Oct 2003 to Jul 2007", make:"TVR", name:"TVR Cerbera 4.2", spec:"1996 N-reg, Rosso Pearl, £15,500", f:["sports"], tags:["Money pit"], hot:true,
+  {era:"super", when:"Oct 2003 to Jul 2007", make:"TVR", name:"TVR Cerbera 4.2", spec:"1996 N-reg, Rosso Pearl, £15,500", f:["sports"], tags:["Money pit"], hot:true, img:"cerbera.jpg", img2:"cerbera-side.jpg",
    text:"I went looking for a Griffith 500 and came home with a deposit down on a Cerbera. It was my only car for three years and it cost a fortune. The first four months found 15 of 16 valve springs broken, a welded-up engine mount and a dead alternator on the M1. The first year came to £10,875 all in. In 2005 it had a full engine rebuild, then the gearbox let go on the M1 on the way back up to Newcastle. Sold in July 2007, after a passenger window that wouldn't go up gave it a proper TVR send-off.",
    q:"That car was horrendously unreliable and built like crap, yet I'd still have another.", src:"beex, 2012"},
   {era:"super", when:"c. 2003 to 2005", make:"Volkswagen", name:"Volkswagen Golf GTI Mk1", spec:"1900 conversion, track prepped", f:["track"],
    text:"The weekend car alongside the Cerbera. Under a grand, stripped for track days, and every bit as quick as the TVR on a B road. I changed the head gasket myself and learned that the Mk1 Golf Haynes manual is no use to anyone.",
    q:"Compared to the Cerb, the feel through the steering is amazing, but then compared to the Cerb it's also infinitely quicker at the moment, as the Cerb is back in the garage AGAIN!", src:"PistonHeads, 2004"},
-  {era:"super", when:"c. 2005 to 2006", make:"BMW", name:"BMW 530i SE Auto", spec:"E39", f:["barge","bmw"],
+  {era:"super", when:"c. 2005 to 2006", make:"BMW", name:"BMW 530i SE Auto", spec:"E34, F-reg, grey", f:["barge","bmw"], img:"530i.jpg",
    text:"The daily driver for the short commute once the Cerbera had become a weekend toy. By summer 2006 it was on its last legs, which is how the Lexus happened."},
-  {era:"super", when:"Sep 2006 to 2007", make:"Lexus", name:"Lexus LS400", spec:"1990s V8 saloon, £1,000 off eBay", f:["barge"], tags:["Best value"],
+  {era:"super", when:"Sep 2006 to 2007", make:"Lexus", name:"Lexus LS400", spec:"1990s V8 saloon, £1,000 off eBay", f:["barge"], tags:["Best value"], img:"lexus-ls400-1.jpg",
    text:"I asked PistonHeads whether there was any reason not to spend £1,500 on a beaten-up LS400 for a five-mile commute, then paid a grand after some negotiation. For a while it shared the drive with the Cerbera, so I owned two of the best V8s ever made. When the exhaust went I sold it on eBay for spares and still got £300.",
    q:"I'm not exaggerating when I say that 100mph feels exactly the same as 70mph, which feels the same as 30mph.", src:"PistonHeads, 2006"},
   {era:"super", when:"2007", make:"Nissan", name:"Nissan Micra", spec:"1.3, 1998", f:["run"],
@@ -322,10 +388,10 @@ const CARS = [
 
   {era:"barge", when:"Nov 2007 to 2008", make:"Jaguar", name:"Jaguar XJ6", spec:"XJ40 3.2 Gold, 1994", f:["barge"],
    text:"Bought off eBay for button money while I was daydreaming about American muscle. It needed headlights, passenger windows and a radio, all of which turned out to be two fuses. 3,000 miles later I'd had my money's worth."},
-  {era:"barge", when:"c. 2008 to 2009", make:"Volkswagen", name:"Volkswagen Phaeton", spec:"3.2 V6", f:["barge"],
+  {era:"barge", when:"c. 2008 to 2009", make:"Volkswagen", name:"Volkswagen Phaeton", spec:"3.2 V6", f:["barge"], img:"phaeton.jpg",
    text:"Daily wafting, the occasional run up the M1 and the weekly trip to the airport. It did 24mpg on my 40-mile commute and fitted my allocated parking space badly. It failed its MOT on tyres the day before I sold it.",
    q:"The Phaeton really is a lovely car, and it does what it does extremely well, but it's just too damn big.", src:"PistonHeads, 2009"},
-  {era:"barge", when:"Jun 2009 to Sep 2014", make:"Mazda", name:"Mazda MX-5", spec:"1.8i Mk1, track car", f:["sports","track","mx5"], tags:["MX-5 #2"], img:"mx5-mk1.jpg",
+  {era:"barge", when:"Jun 2009 to Sep 2014", make:"Mazda", name:"Mazda MX-5", spec:"1.8i Mk1, track car", f:["sports","track","mx5"], tags:["MX-5 #2"], img:"mx5-mk1.jpg", img2:"mx5-mk1-track.jpg",
    text:"I put a cheeky low bid on a badly advertised one on eBay, fully expecting to be outbid, and won. It slowly turned into a proper track car with a roll bar, harnesses and less of everything else. It finally got its first track day at Bedford in May 2013, all written up on its own blog. Sold in 2014 after five years.",
    q:"Time for something I can slide around a bit.", src:"PistonHeads, 2009"},
   {era:"barge", when:"Sep 2009", make:"Porsche", name:"Porsche 944 Turbo", spec:"£3.5k, plus spares", f:["sports"], img:"porsche-944.jpg",
@@ -335,7 +401,7 @@ const CARS = [
    text:"The proper one. Memorable mostly for a spilt McDonald's Coke that shorted the seat recline motor, which then drove me slowly and steadily towards the steering wheel at 70mph on a dual carriageway. Sold in January 2011 when petrol prices got silly.",
    q:"It's a mildly disconcerting feeling to be travelling at 70.1 mph, while the speedo is showing 70.", src:"PistonHeads, 2010"},
 
-  {era:"swap", when:"Mar 2011 to Jun 2012", make:"Fiat", name:"Abarth 500", spec:"Bossa Nova White, ordered new", f:["sports","run"], tags:["Only new car"], img:"abarth.jpg",
+  {era:"swap", when:"Mar 2011 to Jun 2012", make:"Fiat", name:"Abarth 500", spec:"Bossa Nova White, ordered new", f:["sports","run"], tags:["First new car"], img:"abarth.jpg",
    text:"From a V8 M5 to a 1.4 Fiat. Ordered in white with side stripes, climate control and black leather, and the closest thing I'd driven to my stripped Mk1 Golf. I logged every fill-up on Fuelly: 34.3mpg on average, whatever the dash claimed. It went in as part of the Evora deposit.",
    q:"I've never owned a new car before, I'm quite excited by the prospect.", src:"beex, 2011"},
   {era:"swap", when:"2011 to Feb 2012", make:"Nissan", name:"Nissan Micra", spec:"1.0, 1999 facelift", f:["run"],
@@ -345,6 +411,8 @@ const CARS = [
   {era:"swap", when:"Apr 2012", make:"Renault", name:"Renault Clio dCi 80", spec:"2005 Dynamique, diesel", f:["run"],
    text:"Bought as the household's cheap, reliable commuter. It needed a £1,650 injector repair within months, the most I spent fixing any car in five years.",
    q:"Cheap it was, reliable it was not.", src:"beex, 2019"},
+  {era:"swap", when:"From Sep 2012", make:"Volkswagen", name:"Volkswagen Up!", spec:"1.0 Move", f:["run"], img:"up.jpg",
+   text:"Bought new in September 2012, not long after the Clio's £1,650 injector bill, as the household commuter. A city car with an exclamation mark: a litre of petrol, four seats, a little boot and about 60mpg. Not a lot to say about it, which is probably a compliment."},
   {era:"swap", when:"Jul 2012 to Feb 2013", make:"Lotus", name:"Lotus Evora S", spec:"2011, red, 345bhp, 1,700 miles", f:["sports"], tags:["Most complete"], hot:true, img:"evora.jpg",
    text:"I looked at a Cayman S, an Aston Vantage and a few 911s, and loved the Evora most. Bought from Lotus Silverstone for £40,250 and sold six months later for £37,000. The boot filled with water whenever it rained, the oil lines were recalled for a fire risk, and a £20 Mondeo switch unlocks the £350 power-fold mirror option.",
    q:"The Evora is amazing, I've never owned a more complete, every day drivers car.", src:"beex, 2012"},
@@ -363,33 +431,77 @@ const CARS = [
   {era:"puma", when:"Feb 2015 to mid 2015", make:"Ford", name:"Ford Puma 1.7", spec:"Very yellow, £370", f:["sports","run"], tags:["Cheapest"], img:"puma.jpg", img2:"puma-trip.jpg",
    text:"The cheapest car I've ever bought, and the one with the best story. Four Pumas met at the Channel Tunnel for a road trip, swapping fluffy dice, headlight eyelashes and stickers on the way.",
    q:"I have a Puma! It's very yellow... £370, can't complain.", src:"beex, 2015"},
-  {era:"puma", when:"c. 2015 to 2018", make:"Volkswagen", name:"Volkswagen Up!", spec:"1.0 Move", f:["run"],
-   text:"A city car with an exclamation mark: a litre of petrol engine, four seats, a little boot and about 65mpg. Not a lot to say about it, which is probably a compliment."},
-  {era:"puma", when:"Jun 2018 to Nov 2018", make:"BMW", name:"BMW 520i SE", spec:"E39, 2001, one owner, 148,000 miles", f:["barge","bmw"],
+  {era:"puma", when:"Jun 2018 to Nov 2018", make:"BMW", name:"BMW 520i SE", spec:"E39, 2001, one owner, 148,000 miles", f:["barge","bmw"], img:"520i.jpg",
    text:"The Outback's replacement, found within walking distance and on nearly new Continentals. It's not an E39 unless the dash display has dodgy pixels. It soon started burning enough oil to be annoying."},
-  {era:"puma", when:"Nov 2018 to May 2019", make:"BMW", name:"BMW 745i", spec:"E65, 2003, bought sight unseen", f:["barge","bmw"],
+  {era:"puma", when:"Nov 2018 to May 2019", make:"BMW", name:"BMW 745i", spec:"E65, 2003, bought sight unseen", f:["barge","bmw"], img:"745i.jpg",
    text:"The obvious answer to an oil-burning 520i, obviously, was £2,000 on a 745i in Edinburgh, sight unseen. Six months later the gearbox went, with what I described at the time as minor smoke and a mild fire.",
    q:"The obvious thing to do is to spend 2 grand on a 2003 745i sight unseen in Edinburgh, right?", src:"beex, 2018"},
-  {era:"puma", when:"May 2019 to 2020", make:"Mazda", name:"Mazda MX-5 Mk2.5 Sport", spec:"2003, blue, 88,000 miles, £1,800", f:["sports","mx5"], tags:["MX-5 #3","Written off"],
+  {era:"puma", when:"May 2019 to 2020", make:"Mazda", name:"Mazda MX-5 Mk2.5 Sport", spec:"2003, blue, 88,000 miles, £1,800", f:["sports","mx5"], tags:["MX-5 #3","Written off"], img:"mx5-mk25.jpg", img2:"mx5-mk25-crash.jpg",
    text:"Summer was coming, so MX-5 number three it was, with sills sorted, wheels refurbished and an MOT with no advisories before I collected it. Its end came on the M1, when we were hit by a lorry and it was written off.",
    q:"Everything works! It's been a fair old while since I've bought a car where everything actually works.", src:"beex, 2019"},
   {era:"puma", when:"Aug 2019", make:"BMW", name:"BMW 325Ci SE Auto", spec:"E46, 2004, Mystic Blue, 125,000 miles", f:["barge","bmw"], img:"325ci.jpg",
    text:"The mini barge. A bit tatty in places, but nothing a good clean and a wheel refurb wouldn't fix, and BMW number eight.",
    q:"I can heartily recommend an £800 325Ci, it's bloody great.", src:"beex, 2019"},
 
-  {era:"now", when:"2020 to now", make:"Mazda", name:"Mazda MX-5 1.8i S", spec:"Mk2, 1998, 29,000 miles", f:["sports","mx5"], tags:["MX-5 #4"], now:true,
+  {era:"now", when:"2020 to now", make:"Mazda", name:"Mazda MX-5 1.8i S", spec:"Mk2, 1998, 29,000 miles", f:["sports","mx5"], tags:["MX-5 #4"], now:true, img:"mx5-mk2.jpg", img2:"mx5-mk2-drive.jpg",
    text:"Bought from family who never used it: close to immaculate, with sills that aren't rotten. These days it lives in the garage and comes out on sunny days.",
    q:"It's weird to drive an MX5 with a non-broken gearbox, every other one I've had has been 80,000 miles plus.", src:"beex, 2020"},
-  {era:"now", when:"Jul 2023 to now", make:"Nissan", name:"Nissan Leaf e+", spec:"62kWh, 3.Zero", f:["run"], now:true,
+  {era:"now", when:"Jul 2023 to now", make:"Nissan", name:"Nissan Leaf e+", spec:"62kWh, 3.Zero", f:["run"], now:true, img:"leaf.jpg",
    text:"My first electric car, chosen over a Kona because it holds its value better. About 200 miles of range, enough for the round trip to see my dad, and ideal for pottering.",
    q:"Today I have bought a Leaf to go with the MX5. Look at me being all environmentally conscious.", src:"beex, 2023"},
-  {era:"now", when:"Apr 2026 to now", make:"Bentley", name:"Bentley Continental GT", spec:"W12 grand tourer, bought April 2026", f:["barge","sports"], now:true, hot:true,
+  {era:"now", when:"Apr 2026 to now", make:"Bentley", name:"Bentley Continental GT", spec:"2006, 56-plate, W12, black", f:["barge","sports"], now:true, hot:true, img:"bentley.jpg", img2:"bentley-2.jpg",
    text:"The car the bargain barge threads were always pointing at. A third car alongside the Leaf and the MX-5, and at about 4,000 miles a year the fuel bill is not the point.",
    q:"18.4 mpg on the way home from picking it up, positively frugal.", src:"beex, 2026"}
 ];
 
+
+// Factory figures (UK spec where known), approximate. mpg = approx. combined; my = my own recorded mpg.
+const SPECS = [
+ {eng:"1.8 I4", cyl:4, cc:1798, bhp:95, tq:110, z:13.0, mpg:26, ind:"na", c:"UK"},
+ {eng:"1.2 I4", cyl:4, cc:1196, bhp:55, tq:65, z:15.0, mpg:40, ind:"na", c:"UK"},
+ {eng:"2.0 I4 turbo", cyl:4, cc:1998, bhp:242, tq:224, z:6.1, mpg:27, ind:"turbo", c:"Japan"},
+ {eng:"1.6 I4", cyl:4, cc:1597, bhp:115, tq:100, z:8.8, mpg:32, ind:"na", c:"Japan"},
+ {eng:"2.0 I6", cyl:6, cc:1990, bhp:125, tq:121, z:11.4, mpg:26, ind:"na", c:"Germany"},
+ {eng:"3.0 V6", cyl:6, cc:2977, bhp:270, tq:210, z:5.7, mpg:24, ind:"na", c:"Japan"},
+ {eng:"4.2 V8", cyl:8, cc:4185, bhp:350, tq:320, z:4.4, mpg:20, ind:"na", c:"UK"},
+ {eng:"1.8 I4 (stock)", cyl:4, cc:1781, bhp:112, tq:109, z:8.2, mpg:33, ind:"na", c:"Germany"},
+ {eng:"3.0 I6", cyl:6, cc:2986, bhp:188, tq:192, z:9.3, mpg:24, ind:"na", c:"Germany"},
+ {eng:"4.0 V8", cyl:8, cc:3969, bhp:260, tq:270, z:7.0, mpg:23, my:22, ind:"na", c:"Japan"},
+ {eng:"1.3 I4", cyl:4, cc:1275, bhp:74, tq:74, z:11.5, mpg:45, ind:"na", c:"Japan"},
+ {eng:"3.2 I6", cyl:6, cc:3239, bhp:200, tq:220, z:9.0, mpg:23, ind:"na", c:"UK"},
+ {eng:"3.2 V6", cyl:6, cc:3189, bhp:237, tq:232, z:8.9, mpg:24, my:24, ind:"na", c:"Germany"},
+ {eng:"1.8 I4", cyl:4, cc:1839, bhp:129, tq:112, z:8.6, mpg:32, ind:"na", c:"Japan"},
+ {eng:"2.5 I4 turbo", cyl:4, cc:2479, bhp:217, tq:243, z:6.3, mpg:25, ind:"turbo", c:"Germany"},
+ {eng:"4.9 V8", cyl:8, cc:4941, bhp:394, tq:369, z:4.8, mpg:18, ind:"na", c:"Germany"},
+ {eng:"1.4 I4 turbo", cyl:4, cc:1368, bhp:133, tq:152, z:7.9, mpg:43, my:34.3, ind:"turbo", c:"Italy"},
+ {eng:"1.0 I4", cyl:4, cc:998, bhp:59, tq:59, z:14.5, mpg:47, ind:"na", c:"Japan"},
+ {eng:"3.5 V8", cyl:8, cc:3498, bhp:235, tq:254, z:7.5, mpg:24, ind:"na", c:"Germany"},
+ {eng:"1.5 I4 diesel", cyl:4, cc:1461, bhp:80, tq:137, z:13.5, mpg:62, ind:"turbo", c:"France"},
+ {eng:"1.0 I3", cyl:3, cc:999, bhp:59, tq:70, z:14.4, mpg:60, ind:"na", c:"Germany"},
+ {eng:"3.5 V6 supercharged", cyl:6, cc:3456, bhp:345, tq:295, z:4.6, mpg:28, ind:"super", c:"UK"},
+ {eng:"4.0 V8", cyl:8, cc:3969, bhp:241, tq:258, z:7.9, mpg:22, my:22, ind:"na", c:"Japan"},
+ {eng:"4.0 V8 supercharged", cyl:8, cc:3996, bhp:370, tq:387, z:5.3, mpg:20, my:15.9, ind:"super", c:"UK"},
+ {eng:"4.8 V8", cyl:8, cc:4799, bhp:362, tq:361, z:5.9, mpg:23, ind:"na", c:"Germany"},
+ {eng:"3.0 flat six", cyl:6, cc:3000, bhp:242, tq:219, z:8.3, mpg:27, ind:"na", c:"Japan"},
+ {eng:"1.7 I4", cyl:4, cc:1679, bhp:123, tq:116, z:8.6, mpg:38, ind:"na", c:"USA"},
+ {eng:"2.2 I6", cyl:6, cc:2171, bhp:168, tq:155, z:9.1, mpg:30, ind:"na", c:"Germany"},
+ {eng:"4.4 V8", cyl:8, cc:4398, bhp:328, tq:332, z:6.3, mpg:23, ind:"na", c:"Germany"},
+ {eng:"1.8 I4", cyl:4, cc:1839, bhp:144, tq:124, z:8.4, mpg:33, ind:"na", c:"Japan"},
+ {eng:"2.5 I6", cyl:6, cc:2494, bhp:189, tq:181, z:8.3, mpg:31, ind:"na", c:"Germany"},
+ {eng:"1.8 I4", cyl:4, cc:1839, bhp:138, tq:119, z:8.6, mpg:33, ind:"na", c:"Japan"},
+ {eng:"Electric, 160kW", cyl:0, cc:0, bhp:214, tq:250, z:6.9, mpg:null, ind:"ev", c:"Japan"},
+ {eng:"6.0 W12 twin turbo", cyl:12, cc:5998, bhp:552, tq:479, z:4.8, mpg:17, my:18.4, ind:"turbo", c:"UK"}
+];
+CARS.forEach((c,i)=>{ c.s=SPECS[i]; c.n=i+1; });
+
 const tl = document.getElementById('timeline');
 let n = 0;
+
+function specLine(x){
+  const parts=[x.eng, x.bhp+' bhp', x.tq+' lb ft', '0-60 '+x.z.toFixed(1)+'s', x.mpg?('~'+x.mpg+' mpg'):'electric'];
+  if(x.my) parts.push(x.my+' mpg for me');
+  return `<div class="specline">${parts.map(esc).map(t=>`<span>${t}</span>`).join('')}</div>`;
+}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 ERAS.forEach(e=>{
   const head = document.createElement('div');
@@ -399,13 +511,14 @@ ERAS.forEach(e=>{
   CARS.filter(c=>c.era===e.id).forEach(c=>{
     n++;
     const el = document.createElement('article');
-    el.className='entry'; el.dataset.era=e.id; el.dataset.f=c.f.join(' ');
+    el.className='entry'; el.dataset.era=e.id; el.dataset.n=c.n; el.dataset.f=c.f.join(' ');
     const tags = (c.tags||[]).map(t=>`<span class="tag ${c.hot?'hot':''}">${esc(t)}</span>`).join('') + (c.now?'<span class="tag now">In the garage</span>':'');
     el.innerHTML = `
       <div class="side"><span class="num">${String(n).padStart(2,'0')}</span><span class="when">${esc(c.when)}</span></div>
       <div>
         <h4>${esc(c.name)}<small>${esc(c.spec)}</small></h4>
-        ${c.img?`<div class="photos ${c.img2?'two':''}"><img src="img/${c.img}" alt="My ${esc(c.name)}" loading="lazy">${c.img2?`<img src="img/${c.img2}" alt="${esc(c.name)} road trip" loading="lazy">`:''}</div>`:''}
+        ${specLine(c.s)}
+        ${c.img?`<div class="photos ${c.img2?'two':''}"><img src="img/${c.img}" alt="My ${esc(c.name)}" loading="lazy">${c.img2?`<img src="img/${c.img2}" alt="${esc(c.name)}, another view" loading="lazy">`:''}</div>`:''}
         <p>${esc(c.text)}</p>
         ${c.q?`<blockquote>&ldquo;${esc(c.q)}&rdquo;<cite>${esc(c.src)}</cite></blockquote>`:''}
         ${tags?`<div class="tags">${tags}</div>`:''}
@@ -414,21 +527,112 @@ ERAS.forEach(e=>{
   });
 });
 
-document.querySelectorAll('.filters button').forEach(b=>{
+document.querySelectorAll('.filters button[data-f]').forEach(b=>{
   b.addEventListener('click',()=>{
-    document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed','false'));
+    document.querySelectorAll('.filters button[data-f]').forEach(x=>x.setAttribute('aria-pressed','false'));
     b.setAttribute('aria-pressed','true');
-    const f=b.dataset.f;
-    const shownEras=new Set();
-    document.querySelectorAll('.entry').forEach(el=>{
-      const show = f==='all' || el.dataset.f.split(' ').includes(f);
-      el.classList.toggle('hidden',!show);
-      if(show) shownEras.add(el.dataset.era);
-    });
-    document.querySelectorAll('.era').forEach(h=>h.classList.toggle('hidden',!shownEras.has(h.dataset.era)));
-    if (typeof gtag==='function') gtag('event','filter_cars',{filter:f});
+    curFilter=b.dataset.f; applyView();
+    if (typeof gtag==='function') gtag('event','filter_cars',{filter:curFilter});
   });
 });
+
+
+// ---------- sorting ----------
+var curFilter='all', curSort='order';
+function applyView(){
+  const entries=[...document.querySelectorAll('.entry')];
+  const shownEras=new Set();
+  entries.forEach(el=>{
+    const show = curFilter==='all' || el.dataset.f.split(' ').includes(curFilter);
+    el.classList.toggle('hidden',!show); if(show) shownEras.add(el.dataset.era);
+  });
+  const heads=[...document.querySelectorAll('.era')];
+  if(curSort==='order'){
+    // restore original order
+    ERAS.forEach(e=>{ const h=heads.find(x=>x.dataset.era===e.id); tl.appendChild(h); entries.filter(x=>x.dataset.era===e.id).sort((a,b)=>a.dataset.n-b.dataset.n).forEach(x=>tl.appendChild(x)); });
+    heads.forEach(h=>h.classList.toggle('hidden',!shownEras.has(h.dataset.era)));
+  } else {
+    heads.forEach(h=>h.classList.add('hidden'));
+    const key=curSort;
+    entries.sort((a,b)=> key==='bhp' ? CARS[b.dataset.n-1].s.bhp-CARS[a.dataset.n-1].s.bhp : CARS[a.dataset.n-1].s.z-CARS[b.dataset.n-1].s.z).forEach(x=>tl.appendChild(x));
+  }
+}
+document.querySelectorAll('.filters button[data-sort]').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filters button[data-sort]').forEach(x=>x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true'); curSort=b.dataset.sort; applyView();
+  if (typeof gtag==='function') gtag('event','sort_cars',{sort:curSort});
+}));
+
+// ---------- numbers ----------
+const S=CARS.map(c=>({...c.s, name:c.name, n:c.n}));
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const totBhp=sum(S.map(x=>x.bhp)), totCc=sum(S.map(x=>x.cc)), totCyl=sum(S.map(x=>x.cyl));
+const quick=[...S].sort((a,b)=>a.z-b.z), pow=[...S].sort((a,b)=>b.bhp-a.bhp), torq=[...S].sort((a,b)=>b.tq-a.tq);
+document.getElementById('heroStats').innerHTML=[
+  [totBhp.toLocaleString('en-GB'),'bhp in total'],
+  [(totCc/1000).toFixed(1)+'L','of engine, combined'],
+  [totCyl,'cylinders'],
+  [Math.round(totBhp/S.length),'bhp on average']
+].map(([b,l])=>`<div><b>${b}</b><span>${l}</span></div>`).join('');
+
+// chart
+(function(){
+  const svg=document.getElementById('powerChart'), tip=document.getElementById('tip');
+  const W=1040,H=300,ml=40,mr=8,mt=16,mb=28, iw=W-ml-mr, ih=H-mt-mb;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const max=600, bw=iw/S.length, gap=2;
+  const y=v=>mt+ih-(v/max)*ih;
+  const top3=new Set(pow.slice(0,3).map(x=>x.n));
+  let g='<g class="grid">'+[0,100,200,300,400,500,600].map(v=>`<line x1="${ml}" x2="${W-mr}" y1="${y(v)}" y2="${y(v)}"/>`).join('')+'</g>';
+  g+='<g class="axis">'+[0,200,400,600].map(v=>`<text x="${ml-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`).join('')+
+     [1,10,20,30,34].map(n=>`<text x="${ml+(n-.5)*bw}" y="${H-8}" text-anchor="middle">${n}</text>`).join('')+'</g>';
+  S.forEach((x,i)=>{
+    const bx=ml+i*bw+gap/2, bh=Math.max(1,ih-(y(x.bhp)-mt)), by=y(x.bhp), r=Math.min(4,(bw-gap)/2);
+    const path=`M${bx},${mt+ih} V${by+r} Q${bx},${by} ${bx+r},${by} H${bx+bw-gap-r} Q${bx+bw-gap},${by} ${bx+bw-gap},${by+r} V${mt+ih} Z`;
+    g+=`<g data-i="${i}"><rect class="hit" x="${ml+i*bw}" y="${mt}" width="${bw}" height="${ih}"/><path class="bar ${top3.has(x.n)?'top':''}" d="${path}"/></g>`;
+  });
+  // direct labels for top 3
+  pow.slice(0,3).forEach(x=>{ const i=x.n-1; const end=i>S.length-3; g+=`<text class="lbl" x="${end?ml+(i+1)*bw:ml+(i+.5)*bw}" y="${y(x.bhp)-6}" text-anchor="${end?'end':'middle'}">${esc(x.name.replace('Bentley Continental GT','Bentley').replace('TVR Cerbera 4.2','Cerbera'))}</text>`; });
+  svg.innerHTML=g;
+  svg.querySelectorAll('g[data-i]').forEach(el=>{
+    el.addEventListener('mousemove',ev=>{
+      const x=S[+el.dataset.i], wrap=svg.parentElement.getBoundingClientRect();
+      tip.innerHTML=`<b>${String(x.n).padStart(2,'0')} ${esc(x.name)}</b><br>${esc(x.eng)}<br>${x.bhp} bhp · ${x.tq} lb ft · 0-60 ${x.z.toFixed(1)}s`;
+      let lx=ev.clientX-wrap.left+14; if(lx+260>wrap.width) lx=ev.clientX-wrap.left-270;
+      tip.style.left=lx+'px'; tip.style.top=(ev.clientY-wrap.top-20)+'px'; tip.style.opacity=1;
+    });
+    el.addEventListener('mouseleave',()=>tip.style.opacity=0);
+  });
+})();
+
+// facts
+(function(){
+  let bigDrop={d:0}, bigJump={d:0};
+  for(let i=1;i<S.length;i++){ const d=S[i].bhp-S[i-1].bhp; if(d<bigDrop.d) bigDrop={d,a:S[i-1],b:S[i]}; if(d>bigJump.d) bigJump={d,a:S[i-1],b:S[i]}; }
+  const mx5=S.filter(x=>/MX-5/.test(x.name)), bmw=S.filter((x,i)=>CARS[i].make==='BMW');
+  const bent=S[S.length-1], slow=quick[quick.length-1];
+  const forced=S.filter(x=>x.ind==='turbo'||x.ind==='super').length;
+  const v8=S.filter(x=>x.cyl===8).length;
+  const F=[
+    [`From ${S[0].bhp} bhp to ${bent.bhp} bhp`, `The first car to the latest is ${(bent.bhp/S[0].bhp).toFixed(1)} times the power. It only took 34 cars.`],
+    [`All four MX-5s: ${sum(mx5.map(x=>x.bhp))} bhp`, `Add every MX-5 I've owned together and they still fall short of the Bentley on its own.`],
+    [`Biggest downgrade: ${Math.abs(bigDrop.d)} bhp`, `${bigDrop.a.name} to ${bigDrop.b.name}. Petrol prices did that.`],
+    [`Biggest upgrade: ${bigJump.d} bhp`, `${bigJump.a.name} to ${bigJump.b.name}.`],
+    [`Quickest: ${quick[0].name}, ${quick[0].z}s`, `The slowest was the ${slow.name} at about ${slow.z}s. Same driver.`],
+    [`Most torque: ${torq[0].tq} lb ft`, `The ${torq[0].name} has ${Math.round(torq[0].tq/S.find(x=>x.cc===998).tq)} times the twist of the 1.0 Micra.`],
+    [`${v8} V8s`, `Plus one W12, ${S.filter(x=>x.cyl===6).length} sixes and a three-cylinder Up! for balance.`],
+    [`Worst real-world mpg: 15.9`, `The XJR, honestly logged. The Bentley's 18.4 on its first trip home looks frugal by comparison.`],
+    [`${forced} cars with turbos or superchargers`, `The rest breathed on their own, apart from the Leaf, which doesn't breathe at all.`],
+    [`Eight BMWs, ${sum(bmw.map(x=>x.bhp)).toLocaleString('en-GB')} bhp`, `More than a quarter of the garage and the one make I keep coming back to, MX-5s aside.`]
+  ];
+  document.getElementById('facts').innerHTML=F.map(([a,b])=>`<li><strong>${esc(a)}</strong><span>${esc(b)}</span></li>`).join('');
+  const row=(x,v)=>`<tr><td>${String(x.n).padStart(2,'0')}</td><td>${esc(x.name)}</td><td class="r">${v}</td></tr>`;
+  document.getElementById('topPower').innerHTML='<tr><th>#</th><th>Car</th><th class="r">bhp</th></tr>'+pow.slice(0,5).map(x=>row(x,x.bhp)).join('');
+  document.getElementById('topQuick').innerHTML='<tr><th>#</th><th>Car</th><th class="r">0-60</th></tr>'+quick.slice(0,5).map(x=>row(x,x.z.toFixed(1)+'s')).join('');
+  const bars=(el,obj)=>{ const m=Math.max(...Object.values(obj)); document.getElementById(el).innerHTML=Object.entries(obj).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${(v/m*100).toFixed(1)}%"></div></div><span class="ct">${v}</span></div>`).join(''); };
+  const ctry={}; S.forEach(x=>ctry[x.c]=(ctry[x.c]||0)+1); bars('countries',ctry);
+  const cy={}; S.forEach(x=>{const k=x.cyl?x.cyl+' cyl':'Electric'; cy[k]=(cy[k]||0)+1}); bars('cyls',cy);
+})();
 
 const counts={}; CARS.forEach(c=>counts[c.make]=(counts[c.make]||0)+1);
 const max=Math.max(...Object.values(counts));
